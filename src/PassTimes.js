@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios'; 
 
 function PassTimes() {
@@ -9,7 +9,7 @@ function PassTimes() {
   const [lat, setLat] = useState('');
   const [long, setLong] = useState('');
   const [gotLocation, setGotLocation] = useState(false);
-  // const [passTimes, setPassTimes] = useState([]);
+  const [passTimes, setPassTimes] = useState([]);
   // const [test, setTest] = useState(); 
 
 
@@ -27,7 +27,7 @@ function PassTimes() {
 
     console.log(lat); 
     console.log(long); 
-    // console.long(gotLocation)
+    
     const api = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`
     console.log(api);
     
@@ -36,7 +36,7 @@ function PassTimes() {
       .then(response => {
         
         console.log(response.data)
-        // setPassTimes(response.data); 
+        setPassTimes(response.data.response); 
         
         // console.log(passTimes)
       })
@@ -46,6 +46,7 @@ function PassTimes() {
     }
       
     console.log(gotLocation)
+    console.log(passTimes);
     
   }, [gotLocation]);
 
@@ -56,6 +57,12 @@ function PassTimes() {
   return (
     <div>
       
+      {passTimes.map((data) => (
+        <div key={data.risetime}>
+          <p>{data.duration}</p>
+          <p>{data.risetime}</p>
+        </div>
+      ))}
     </div>
   );
 }
