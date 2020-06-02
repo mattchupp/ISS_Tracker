@@ -71,7 +71,7 @@ function PassTimes() {
       {passTimes.map((data) => (
         <div key={data.risetime}>
           <p>{data.duration}</p>
-          <p>{moment(data.risetime).format()}</p> 
+          <p>{moment.unix(data.risetime).format("MM/DD/YYYY hh:mm:ss a")}</p> 
         </div>
           
         
