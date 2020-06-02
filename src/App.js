@@ -5,6 +5,7 @@ import PassTimes from './PassTimes';
 function App() {
   return (
     <div className="App">
+      <p>This needs your location to work.</p>
       <PassTimes />
     </div>
   );
