@@ -26,13 +26,13 @@ function PassTimes() {
     
 
     console.log(lat); 
-      console.log(long); 
+    console.log(long); 
     // console.long(gotLocation)
     const api = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`
     console.log(api);
-    /*
-    // if(gotLocation === true) {
-      axios.get(`https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`)
+    
+    if(gotLocation === true) {
+      axios.get(api)
       .then(response => {
         
         console.log(response.data)
@@ -43,11 +43,11 @@ function PassTimes() {
       .catch(error => {
         console.log(error)
       });
-    // }
-      */
-    // console.log(gotLocation)
+    }
+      
+    console.log(gotLocation)
     
-  }, [lat,long]);
+  }, [gotLocation]);
 
   // // console.log(test)
   // setTest('Hello')
