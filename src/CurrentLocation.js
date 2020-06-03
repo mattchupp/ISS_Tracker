@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; 
 // import Times from './components/Times'; 
-import styled from 'styled-components'; 
+// import styled from 'styled-components'; 
 import moment from 'moment';
+import MapContainer from './components/Map'; 
 
 /* Get current location of ISS */
 
@@ -65,6 +66,8 @@ function CurrentLocation() {
       <p>{currentLat}</p>
       <p>{currentLong}</p>
       <p>{moment.unix(timestamp).format('MM/DD/YYYY hh:mm:ss')}</p>
+
+      <MapContainer />
     </div>
   )
   
