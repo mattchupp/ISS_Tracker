@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper } from 'google-maps-react';
+// require('dotenv').config({ path: '../../.env' })
 
 const mapStyles = {
-  width: '100%',
-  height: '100%'
+  width: '500px',
+  height: '500px'
 };
 
 export class MapContainer extends Component {
@@ -11,11 +12,11 @@ export class MapContainer extends Component {
     return (
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={3}
         style={mapStyles}
         initialCenter={{
-         lat: -1.2884,
-         lng: 36.8233
+         lat: this.props.lat,
+         lng: this.props.long
         }}
       />
     );
@@ -23,5 +24,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyBAJZGS4XvaGB6S2jElS18BhzYKJIEHW-Q'
+  apiKey: ''
 })(MapContainer);
