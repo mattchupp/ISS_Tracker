@@ -18,7 +18,6 @@ function PassTimes() {
   const [long, setLong] = useState('');
   const [gotLocation, setGotLocation] = useState(false);
   const [passTimes, setPassTimes] = useState([]);
-  // const [test, setTest] = useState(); 
 
 
   // Get current location
@@ -42,7 +41,7 @@ function PassTimes() {
     const api = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`
     // console.log(api);
     
-    // Only 
+    // Only call api if location was allowed
     if(gotLocation === true) {
       axios.get(api)
       .then(response => {
