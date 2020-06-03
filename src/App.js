@@ -1,6 +1,12 @@
 import React from 'react';
 import PassTimes from './PassTimes';
 import styled from 'styled-components'; 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const Container = styled.div`
   display: flex; 
@@ -13,7 +19,16 @@ const Container = styled.div`
 function App() {
   return (
     <Container>
-      <PassTimes />
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Link to="/times">See passover times</Link>
+          </Route>
+          <Route exact path="/times">
+            <PassTimes />
+          </Route>
+        </Switch>
+      </Router>
     </Container>
   );
 }
