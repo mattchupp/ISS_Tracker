@@ -4,7 +4,7 @@ import PassTimes from './PassTimes';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <PassTimes />
     </div>
   );
