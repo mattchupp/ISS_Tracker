@@ -1,5 +1,7 @@
 Let's track the ISS. I like space. I found an [api that gives information on the space station](http://open-notify.org/Open-Notify-API/ISS-Location-Now/) so this is to play around with it.
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/cbf9a551-4835-4814-94c4-d521d47acff1/deploy-status)](https://app.netlify.com/sites/cocky-fermi-6c361e/deploys)
+
 ## Available Scripts
 
 In the project directory, you can run:
