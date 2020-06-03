@@ -39,7 +39,6 @@ function PassTimes() {
     console.log(lat); 
     console.log(long); 
     
-    // const api = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}&alt=20&n=5&callback=?`
     const api = `https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-pass.json?lat=${lat}&lon=${long}`
     // console.log(api);
     
@@ -63,21 +62,28 @@ function PassTimes() {
     
   }, [gotLocation]);
 
- 
-
-  return (
-    <Times>
-      Look up, the International Space Station will be floating by at
-      {passTimes.map((data) => (
-        <div key={data.risetime}>
-          <p>{data.duration}</p>
-          <p>{moment.unix(data.risetime).format("MM/DD/YYYY hh:mm:ss a")}</p> 
-        </div>
+  // Don't display anything unless there is something in passTimes
+  if(passTimes.length > 0) {
+    return (
+      <Times>
+        Look up, the International Space Station will be floating by at
+        {passTimes.map((data) => (
+          <div key={data.risetime}>
+            <p>{moment.unix(data.risetime).format("MM/DD/YYYY hh:mm:ss a")} <br />for {(data.duration / 60).toFixed(2)} minutes</p> 
+          </div>
+            
           
-        
-      ))}
-    </Times>
-  );
+        ))}
+      </Times>
+    );
+  } else {
+    return (
+      <Times>
+        <p>Please Allow Location</p>
+      </Times>
+    )
+  }
+  
 }
 
 export default PassTimes;
