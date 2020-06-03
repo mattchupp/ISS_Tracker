@@ -66,13 +66,11 @@ function PassTimes() {
   if(passTimes.length > 0) {
     return (
       <Times>
-        Look up, the International Space Station will be floating by at
+        Look up, the International Space Station will be floating by
         {passTimes.map((data) => (
           <div key={data.risetime}>
-            <p>{moment.unix(data.risetime).format("MM/DD/YYYY hh:mm:ss a")} <br />for {(data.duration / 60).toFixed(2)} minutes</p> 
-          </div>
-            
-          
+            <p>{moment.unix(data.risetime).format("LLLL")} <br />for {Math.floor(data.duration / 60)} minutes</p> 
+          </div>   
         ))}
       </Times>
     );
