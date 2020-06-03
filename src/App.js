@@ -1,5 +1,6 @@
 import React from 'react';
 import PassTimes from './PassTimes';
+import CurrentLocation from './CurrentLocation'
 import styled from 'styled-components'; 
 import {
   BrowserRouter as Router,
@@ -21,12 +22,19 @@ function App() {
     <Container>
       <Router>
         <Switch>
+
           <Route exact path="/">
             <Link to="/times">See passover times</Link>
           </Route>
+
           <Route exact path="/times">
             <PassTimes />
           </Route>
+
+          <Route exact path="/location">
+            <CurrentLocation />
+          </Route>
+
         </Switch>
       </Router>
     </Container>
