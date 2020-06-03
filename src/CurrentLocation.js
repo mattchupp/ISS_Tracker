@@ -67,7 +67,10 @@ function CurrentLocation() {
       <p>{currentLong}</p>
       <p>{moment.unix(timestamp).format('MM/DD/YYYY hh:mm:ss')}</p>
 
-      <MapContainer />
+      <MapContainer 
+        lat={currentLat}
+        long={currentLong}
+      />
     </div>
   )
   
